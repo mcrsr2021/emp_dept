@@ -1,0 +1,36 @@
+{% extends 'app1/base.html' %}
+{% block content %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>EMPNO</th>
+                <th>ENAME</th>
+                <th>JOB</th>
+                <th>MGR</th>
+                <th>HIREDATE</th>
+                <th>SAL</th>
+                <th>COMM</th>
+                <th>DEPTNO</th>
+                <th>UPDATE</th>
+                <th>DELETE</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for emp in object_list %}
+                <tr>
+                    <td>{{ emp.empno }}</td>
+                    <td>{{ emp.ename }}</td>
+                    <td>{{ emp.job }}</td>
+                    <td>{{ emp.mgr }}</td>
+                    <td>{{ emp.hiredate }}</td>
+                    <td>{{ emp.sal }}</td>
+                    <td>{{ emp.comm }}</td>
+                    <td>{{ emp.deptno }}</td>
+                    <td><a href="{% url 'emp_update' emp.empno %}">UPDATE</a></td>
+                    <td><a href="{% url 'emp_delete' emp.empno %}">DELETE</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}

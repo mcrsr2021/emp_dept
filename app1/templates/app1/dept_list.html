@@ -1,0 +1,26 @@
+{% extends 'app1/base.html' %}
+{% block content %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>DEPTNO</th>
+                <th>DNAME</th>
+                <th>LOC</th>
+                <th>UPDATE</th>
+                <th>DELETE</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dept in object_list %}
+                <tr>
+                    <td>{{ dept.deptno }}</td>
+                    <td>{{ dept.dname }}</td>
+                    <td>{{ dept.loc }}</td>
+                    <td><a href="{% url 'dept_update' dept.deptno %}">UPDATE</a></td>
+                    <td><a href="{% url 'dept_delete' dept.deptno %}">DELETE</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}
